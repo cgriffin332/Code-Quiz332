@@ -71,8 +71,38 @@
                 </div>
             </div>            
         </div>
-
-        
+        <!-- final score container -->
+        <div id="container3" class="container hide">
+            <div class="row">
+                <div class="col-11 col-md-8 col-lg-6 mx-auto mt-5">
+                    <h4>All done!</h4>
+                </div>
+            </div>
+            <div class="row">
+                    <!-- show score -->
+                <div class="col-11 col-md-8 col-lg-6 mx-auto">   
+                    <p>Your final score is <span id="finalScore">0</span>.</p>
+                </div>
+            </div>
+            <div class="row">
+                    <!-- form to enter initials -->
+                <div class="col-11 col-md-8 col-lg-6  mx-auto">
+                    <form class="form-inline">
+                        <div class="form-group mb-2">
+                            <!-- enter initials  -->
+                            <label for="">Enter initials:    </label>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only"></label>
+                            <!-- initials input -->
+                            <input type="password" class="form-control" id="inputPassword2">
+                        </div>
+                        <!-- submit initials button -->
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <script src="./script.js" ></script>
     </body>
 </html>
