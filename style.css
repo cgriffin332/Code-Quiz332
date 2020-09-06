@@ -1,0 +1,10 @@
+/* timer styling */
+#timer {
+    float: right;
+    margin-right: 5px;
+}
+/* Highscores Link styling */
+#highscoresLink {
+    margin-left: 5px;
+    color: blue;
+}

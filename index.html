@@ -12,7 +12,30 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <h1>Hello World</h1>
+        <!-- navbar including View Highscores link and Timer -->
+        <nav>
+            <!-- View Highscores link -->
+            <a href="" id="highscoresLink">View Highscores</a>
+            <!-- timer div -->
+            <div id="timer">Time: <span id="timerValue">0</span></div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col mx-auto">
+                    <h1>Coding Quiz Challenge</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mx-auto">
+                    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mx-auto">
+                    <button class="btn" id="startQuiz">Start Quiz</button>
+                </div>
+            </div>
+        </div>
 
         
         <script src="./script.js" ></script>
