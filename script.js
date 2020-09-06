@@ -9,10 +9,7 @@ var finalScoreContainer = document.getElementById("container3");
 startButton.addEventListener("click", function(){
     // start timer number
     var time = 76;
-    // hides this container
-    startContainer.style.display = "none";
-    // shows question to begin quiz
-    questionContainer.style.display = "block";
+    showQuestionContainer();
     // start timer
     var setTimer = setInterval(function(){
         if (time > 0) {
@@ -20,11 +17,25 @@ startButton.addEventListener("click", function(){
             timerValue.textContent = time;
         } else {
             clearInterval(setTimer);
-            // get final score page to show
-            questionContainer.style.display = "none";
-            finalScoreContainer.style.display = "block";
+            showScoreContainer();
         }
     }, 500)
 })
 
 // 
+var showQuestionContainer = function(){
+    // hides this container
+    startContainer.style.display = "none";
+    // shows question to begin quiz
+    questionContainer.style.display = "block";
+}
+var showScoreContainer = function(){
+    // get final score page to show
+    questionContainer.style.display = "none";
+    finalScoreContainer.style.display = "block";
+}
+var showStartContainer = function(){
+    // get start page to show
+    finalScoreContainer.style.display = "none";
+    startContainer.style.display = "block";
+}
