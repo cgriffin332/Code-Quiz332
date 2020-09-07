@@ -12,3 +12,16 @@
 .hide {
     display: none;
 }
+/* button styling */
+.btn {
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
