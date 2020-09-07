@@ -98,19 +98,27 @@ var changeQuestion = function(){
     answer4.textContent = questions[i].answer4;
 }
 // make questions change on click of answer
-answersUl.addEventListener("click", function(){
-    console.log(event.target.innerHTML);
-    console.log(questions[i].correct);
+answersUl.addEventListener("click", function(event){
+    // prevent buttons from staying highlighted
+    event.preventDefault();
     // so you dont have to click the last answer twice
     if (i < questions.length - 1) {
         // if the answer is correct
         if (event.target.innerHTML === questions[i].correct) {
             correct.style.display = "block";
             wrong.style.display = "none";
-// !!!!!!!!!!! make text display for 2 seconds then go away
+            // clear out result in 1 second
+            setInterval(function(){
+                correct.style.display = "none";
+            }, 2000)
+            // clear out result in 1 second
         } else {
             wrong.style.display = "block";
             correct.style.display = "none";
+            // clear out result in 2 seconds
+            setInterval(function(){
+                wrong.style.display = "none";
+            }, 1000)
         }
         i++;
         changeQuestion();
