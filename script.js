@@ -113,6 +113,8 @@ answersUl.addEventListener("click", function(event){
             }, 2000)
             // clear out result in 1 second
         } else {
+            // subtract 10 seconds if answer is incorrect
+            time -= 10;
             wrong.style.display = "block";
             correct.style.display = "none";
             // clear out result in 2 seconds
