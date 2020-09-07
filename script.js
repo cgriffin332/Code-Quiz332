@@ -11,6 +11,12 @@ var highscoreContainer = document.getElementById("container4");
 var highscoreLink = document.getElementById("highscoreLink")
 var goBackBtn = document.getElementById("goBack");
 var clearBtn = document.getElementById("clear");
+var quizQuestion = document.getElementById("quizQuestion");
+var answer1 = document.getElementById("questionValue1");
+var answer2 = document.getElementById("questionValue2");
+var answer3 = document.getElementById("questionValue3");
+var answer4 = document.getElementById("questionValue4");
+
 
 
 //questions array
@@ -51,6 +57,14 @@ var questions = [{
     correct: "unanimous"
 }];
 
+// populate quiz questions
+var changeQuestion = function(){
+    quizQuestion.textContent = questions[i].question;
+    answer1.textContent = questions[i].answer1;
+    answer2.textContent = questions[i].answer2;
+    answer3.textContent = questions[i].answer3;
+    answer4.textContent = questions[i].answer4;
+}
 
 var showQuestionContainer = function(){
     // hides this container
@@ -88,11 +102,13 @@ goBackBtn.addEventListener("click", function(){
 })
 
 var time = 0
+var i = 0
 
 // when start button is clicked, timer is set at 75 and begins.
 startButton.addEventListener("click", function(){
     // start timer number
     time = 76;
+    changeQuestion();
     showQuestionContainer();
     // start timer
     var setTimer = setInterval(function(){
