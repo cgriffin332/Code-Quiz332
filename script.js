@@ -76,15 +76,11 @@ startButton.addEventListener("click", function(){
         if (time > 0) {
             time--;
             timerValue.textContent = time;
-        } 
-        else if (i === questions.length) {
-            clearInterval(setTimer)
-        }
-            else {
-            // clear setinterval
-            clearInterval(setTimer);
-            // open score page
-            showScoreContainer();
+        } else {
+        // clear setinterval
+        clearInterval(setTimer);
+        // open score page
+        showScoreContainer();
         }
     }, 1000)
 })
@@ -105,19 +101,21 @@ answersUl.addEventListener("click", function(event){
     if (i < questions.length - 1) {
         // if the answer is correct
         if (event.target.innerHTML === questions[i].correct) {
+            // show user correct h5
             correct.style.display = "block";
             wrong.style.display = "none";
             // clear out result in 1 second
             setInterval(function(){
                 correct.style.display = "none";
-            }, 2000)
+            }, 1000)
             // clear out result in 1 second
         } else {
             // subtract 10 seconds if answer is incorrect
             time -= 10;
+            // show user wrong h5
             wrong.style.display = "block";
             correct.style.display = "none";
-            // clear out result in 2 seconds
+            // clear out result in 1 second
             setInterval(function(){
                 wrong.style.display = "none";
             }, 1000)
@@ -125,10 +123,30 @@ answersUl.addEventListener("click", function(event){
         i++;
         changeQuestion();
     } else {
-        // clear setinterval
-        finalScore.textContent = time;
-        time = 0;
-        showScoreContainer();
+        // stop clock but delay .5 second to allow subtraction of time if last question is incorrect.
+        if (event.target.innerHTML === questions[i].correct) {
+            // show correct h5
+            correct.style.display = "block";
+            wrong.style.display = "none";
+            // clear out result in 1 second
+            setInterval(function(){
+                correct.style.display = "none";
+            }, 1000)
+        } else {
+            // subtract 10 seconds if answer is incorrect
+            time -= 10;
+            //show wrong h5
+            wrong.style.display = "block";
+            correct.style.display = "none";
+            // clear out result in 1 secondd
+            setInterval(function(){
+                wrong.style.display = "none";
+            }, 1000)
+            finalScore.textContent = time;
+            time = 0;
+            timerValue.textContent = 0;
+            showScoreContainer();
+        }
     }
 })
 
@@ -188,5 +206,4 @@ submitBtn.addEventListener("click", function(event){
 clearBtn.addEventListener("click", function(){
     highscoreList.innerHTML = "";
 })
-
 
