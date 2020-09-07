@@ -13,6 +13,44 @@ var goBackBtn = document.getElementById("goBack");
 var clearBtn = document.getElementById("clear");
 
 
+//questions array
+var questions = [{
+    question: "Commonly used data types DO NOT include:",
+    answer1: "strings",
+    answer2: "booleans",
+    answer3: "alerts",
+    answer4: "numbers",
+    correct: "alerts"
+}, {
+    question: "The condition in an if/else statement is enclosed within ____.:",
+    answer1: "quotes",
+    answer2: "curly brackets",
+    answer3: "parentheses",
+    answer4: "square brackets",
+    correct: "parentheses"
+}, {
+    question: "Arrays in JavaScript can be used to store ____.:",
+    answer1: "numbers and strings",
+    answer2: "other arrays",
+    answer3: "booleans",
+    answer4: "all of the above",
+    correct: "all of the above"
+}, {
+    question: "These are listed inside the parentheses of a function when it is defigned:",
+    answer1: "strings",
+    answer2: "arguments",
+    answer3: "parameters",
+    answer4: "variables",
+    correct: "parameters"
+}, {
+    question: "A function stored as an object property:",
+    answer1: "callback",
+    answer2: "unanimous",
+    answer3: "method",
+    answer4: "void",
+    correct: "unanimous"
+}];
+
 
 var showQuestionContainer = function(){
     // hides this container
@@ -31,6 +69,7 @@ var showStartContainer = function(){
     highscoreContainer.style.display = "none";
     startContainer.style.display = "block";
 }
+// opens highscore page
 var  showHighscoreContainer = function(){
     finalScoreContainer.style.display = "none";
     startContainer.style.display = "none";
@@ -39,10 +78,12 @@ var  showHighscoreContainer = function(){
 
 // open highscore page
 highscoreLink.addEventListener("click", function(){
+    // open highscore page
     showHighscoreContainer();
 })
 // go back to title page
 goBackBtn.addEventListener("click", function(){
+    //open start page
     showStartContainer();
 })
 
@@ -59,7 +100,9 @@ startButton.addEventListener("click", function(){
             time--;
             timerValue.textContent = time;
         } else {
+            // clear setinterval
             clearInterval(setTimer);
+            // open score page
             showScoreContainer();
         }
     }, 100)
@@ -76,6 +119,7 @@ submitBtn.addEventListener("click", function(event){
     listScore.textContent = initialsInput.value + " - " + time;
     //add score to ol
     highscoreList.appendChild(listScore);
+    //change to highscore page
     showHighscoreContainer();
 })
 // clear button clears out highscores
