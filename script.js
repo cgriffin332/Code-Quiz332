@@ -10,6 +10,7 @@ var highscoreList = document.getElementById("highscoreList");
 var highscoreContainer = document.getElementById("container4");
 var highscoreLink = document.getElementById("highscoreLink")
 var goBackBtn = document.getElementById("goBack");
+var clearBtn = document.getElementById("clear");
 
 
 
@@ -77,6 +78,9 @@ submitBtn.addEventListener("click", function(event){
     highscoreList.appendChild(listScore);
     showHighscoreContainer();
 })
-
+// clear button clears out highscores
+clearBtn.addEventListener("click", function(){
+    highscoreList.innerHTML = "";
+})
 
 
