@@ -104,7 +104,7 @@ answersUl.addEventListener("click", function(event){
             correct.style.display = "block";
             wrong.style.display = "none";
             // clear out result in 2 seconds
-            setInterval(function(){
+            setTimeout(function(){
                 correct.style.display = "none";
             }, 2000)
             // clear out result in 2 seconds
@@ -115,7 +115,7 @@ answersUl.addEventListener("click", function(event){
             wrong.style.display = "block";
             correct.style.display = "none";
             // clear out result in 2 seconds
-            setInterval(function(){
+            setTimeout(function(){
                 wrong.style.display = "none";
             }, 2000)
         }
@@ -128,7 +128,7 @@ answersUl.addEventListener("click", function(event){
             correct.style.display = "block";
             wrong.style.display = "none";
             // clear out result in 2 seconds
-            setInterval(function(){
+            setTimeout(function(){
                 correct.style.display = "none";
             }, 2000)
         } else {
@@ -138,7 +138,7 @@ answersUl.addEventListener("click", function(event){
             wrong.style.display = "block";
             correct.style.display = "none";
             // clear out result in 2 seconds
-            setInterval(function(){
+            setTimeout(function(){
                 wrong.style.display = "none";
             }, 2000)
         }
