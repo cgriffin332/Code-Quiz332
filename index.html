@@ -1,148 +1,163 @@
-<!DOCTYPE html>
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Code Quiz332</title>
-        <!-- added griffin icon to tab -->
-        <link rel="icon" href="./griffin.jpg">        
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <!-- navbar including View Highscores link and Timer -->
-        <nav>
-            <!-- View Highscores link -->
-            <a href="#" id="highscoreLink">View Highscores</a>
-            <!-- timer div -->
-            <div id="timer">Time: <span id="timerValue">0</span></div>
-        </nav>
-        <!-- first container div -->
-        <div id="container1" class="container">
-            <div class="row">
-                <!-- title div -->
-                <div class="col-11 col-md-7 text-center mt-5 mx-auto">
-                    <h3>Coding Quiz Challenge</h3>
-                </div>
-            </div>
-            <div class="row">
-                <!-- explination div -->
-                <div class="col-11 col-md-7 text-center mx-auto">
-                    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-11 col-md-7 text-center mx-auto">
-                    <!-- start button -->
-                    <button type="button" class="btn btn-primary" id="startQuiz">Start Quiz</button>
-                </div>
-            </div>
+<!DOCTYPE html> <!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Code Quiz332</title>
+    <!-- added griffin icon to tab -->
+    <link rel="icon" href="./griffin.jpg" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- navbar including View Highscores link and Timer -->
+    <nav>
+      <!-- View Highscores link -->
+      <a href="#" id="highscoreLink">View Highscores</a>
+      <!-- timer div -->
+      <div id="timer">Time: <span id="timerValue">0</span></div>
+    </nav>
+    <!-- first container div -->
+    <div id="container1" class="container">
+      <div class="row">
+        <!-- title div -->
+        <div class="col-11 col-md-7 text-center mt-5 mx-auto">
+          <h3>Coding Quiz Challenge</h3>
         </div>
-        <!-- second container -->
-        <div id="container2" class="container hide">
-            <div class="row">
-                <!-- question and answers row -->
-                <div class="col-11 col-md-7 mx-auto mt-5">
-                    <h4 id="quizQuestion">This is the quiz question.</h4>
-                    <ul id="allAnswers">
-                        <li>
-                            <!-- answer one -->
-                            <button type="button" class="btn btn-primary" id="question1">
-                                1. <span id="questionValue1">Answer</span>
-                            </button>
-                        </li>
-                        <li>
-                            <!-- answer two -->    
-                            <button type="button" class="btn btn-primary" id="question2">
-                                2. <span id="questionValue2">Answer</span>
-                            </button>
-                        </li>
-                        <li>
-                            <!-- answer three -->    
-                            <button type="button" class="btn btn-primary" id="question3">
-                                3. <span id="questionValue3">Answer</span>
-                            </button>
-                        </li>
-                        <li>
-                            <!-- answer four -->    
-                            <button type="button" class="btn btn-primary" id="question4">
-                                4. <span id="questionValue4">Answer</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>       
+      </div>
+      <div class="row">
+        <!-- explination div -->
+        <div class="col-11 col-md-7 text-center mx-auto">
+          <p>
+            Try to answer the following code-related questions within the time
+            limit. Keep in mind that incorrect answers will penalize your
+            score/time by ten seconds!
+          </p>
         </div>
-        <!-- final score container -->
-        <div id="container3" class="container hide">
-            <div class="row">
-                <div class="col-11 col-md-8 col-lg-6 mx-auto mt-5">
-                    <h4>All done!</h4>
-                </div>
-            </div>
-            <div class="row">
-                    <!-- show score -->
-                <div class="col-11 col-md-8 col-lg-6 mx-auto">   
-                    <p>Your final score is <span id="finalScore">0</span>.</p>
-                </div>
-            </div>
-            <div class="row">
-                    <!-- form to enter initials -->
-                <div class="col-11 col-md-8 col-lg-6  mx-auto">
-                    <form class="form-inline">
-                        <div class="form-group mb-2">
-                            <!-- enter initials  -->
-                            <label for="">Enter initials:    </label>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="initialsInput" class="sr-only"></label>
-                            <!-- initials input -->
-                            <input type="text" class="form-control" id="initialsInput">
-                        </div>
-                        <!-- submit initials button -->
-                        <button type="submit" id="submit" class="btn btn-primary mb-2">Submit</button>
-                    </form>
-                </div>
-            </div> 
+      </div>
+      <div class="row">
+        <div class="col-11 col-md-7 text-center mx-auto">
+          <!-- start button -->
+          <button type="button" class="btn btn-primary" id="startQuiz">
+            Start Quiz
+          </button>
         </div>
-        <!-- Highscores -->
-        <div id="container4" class="container hide">
-            <div class="row">
-                <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
-                    <h4 id="startQuiz">Highscores</h4>
-                </div>
-            </div>
-            <div class="row">
-                    <!-- List of Scores -->
-                <div class="col-8 col-md-6 col-lg-4 mx-auto">   
-                    <ol id="highscoreList">
-                        <!-- initials and high scores go here -->
-
-                    </ol>
-                </div>
-            </div>
-            <div class="row">
-                    <!-- buttons -->
-                <div class="col-8 col-md-6 col-lg-4  mx-auto">
-                    <!-- submit initials button -->
-                    <button id="goBack" class="btn btn-primary mb-2 mr-2">Go Back</button>
-                    <!-- clear button -->
-                    <button id="clear" class="btn btn-primary mb-2">Clear Highscores</button>
-                </div>
-            </div>
+      </div>
+    </div>
+    <!-- second container -->
+    <div id="container2" class="container hide">
+      <div class="row">
+        <!-- question and answers row -->
+        <div class="col-11 col-md-7 mx-auto mt-5">
+          <h4 id="quizQuestion">This is the quiz question.</h4>
+          <ul id="allAnswers">
+            <li>
+              <!-- answer one -->
+              <button type="button" class="btn btn-primary" id="question1">
+                1. <span id="questionValue1">Answer</span>
+              </button>
+            </li>
+            <li>
+              <!-- answer two -->
+              <button type="button" class="btn btn-primary" id="question2">
+                2. <span id="questionValue2">Answer</span>
+              </button>
+            </li>
+            <li>
+              <!-- answer three -->
+              <button type="button" class="btn btn-primary" id="question3">
+                3. <span id="questionValue3">Answer</span>
+              </button>
+            </li>
+            <li>
+              <!-- answer four -->
+              <button type="button" class="btn btn-primary" id="question4">
+                4. <span id="questionValue4">Answer</span>
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-11 col-md-7 mx-auto">
-                    <!-- correct h5 -->
-                    <h5 id="correct" class="text-secondary border-top hide">Correct!</h5>
-                    <!-- wrong h5 -->
-                    <h5 id="wrong" class="text-secondary border-top hide">Wrong!</h5>
-                </div>
-            </div>     
+      </div>
+    </div>
+    <!-- final score container -->
+    <div id="container3" class="container hide">
+      <div class="row">
+        <div class="col-11 col-md-8 col-lg-6 mx-auto mt-5">
+          <h4>All done!</h4>
         </div>
-        <script src="./script.js" ></script>
-    </body>
+      </div>
+      <div class="row">
+        <!-- show score -->
+        <div class="col-11 col-md-8 col-lg-6 mx-auto">
+          <p>Your final score is <span id="finalScore">0</span>.</p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- form to enter initials -->
+        <div class="col-11 col-md-8 col-lg-6 mx-auto">
+          <form class="form-inline">
+            <div class="form-group mb-2">
+              <!-- enter initials  -->
+              <label for="">Enter initials: </label>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="initialsInput" class="sr-only"></label>
+              <!-- initials input -->
+              <input type="text" class="form-control" id="initialsInput" />
+            </div>
+            <!-- submit initials button -->
+            <button type="submit" id="submit" class="btn btn-primary mb-2">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Highscores -->
+    <div id="container4" class="container hide">
+      <div class="row">
+        <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
+          <h4 id="startQuiz">Highscores</h4>
+        </div>
+      </div>
+      <div class="row">
+        <!-- List of Scores -->
+        <div class="col-8 col-md-6 col-lg-4 mx-auto">
+          <ol id="highscoreList">
+            <!-- initials and high scores go here -->
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <!-- buttons -->
+        <div class="col-8 col-md-6 col-lg-4 mx-auto">
+          <!-- submit initials button -->
+          <button id="goBack" class="btn btn-primary mb-2 mr-2">Go Back</button>
+          <!-- clear button -->
+          <button id="clear" class="btn btn-primary mb-2">
+            Clear Highscores
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-11 col-md-7 mx-auto">
+          <!-- correct h5 -->
+          <h5 id="correct" class="text-secondary border-top hide">Correct!</h5>
+          <!-- wrong h5 -->
+          <h5 id="wrong" class="text-secondary border-top hide">Wrong!</h5>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>
