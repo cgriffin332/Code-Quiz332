@@ -59,7 +59,7 @@ var questions = [{
     answer2: "unanimous",
     answer3: "method",
     answer4: "void",
-    correct: "unanimous"
+    correct: "method"
 }];
 
 // when start button is clicked, timer is set at 75 and begins.
@@ -104,21 +104,21 @@ answersUl.addEventListener("click", function(event){
             // show user correct h5
             correct.style.display = "block";
             wrong.style.display = "none";
-            // clear out result in 1 second
+            // clear out result in 2 seconds
             setInterval(function(){
                 correct.style.display = "none";
-            }, 1000)
-            // clear out result in 1 second
+            }, 2000)
+            // clear out result in 2 seconds
         } else {
             // subtract 10 seconds if answer is incorrect
             time -= 10;
             // show user wrong h5
             wrong.style.display = "block";
             correct.style.display = "none";
-            // clear out result in 1 second
+            // clear out result in 2 seconds
             setInterval(function(){
                 wrong.style.display = "none";
-            }, 1000)
+            }, 2000)
         }
         i++;
         changeQuestion();
@@ -128,20 +128,20 @@ answersUl.addEventListener("click", function(event){
             // show correct h5
             correct.style.display = "block";
             wrong.style.display = "none";
-            // clear out result in 1 second
+            // clear out result in 2 seconds
             setInterval(function(){
                 correct.style.display = "none";
-            }, 1000)
+            }, 2000)
         } else {
             // subtract 10 seconds if answer is incorrect
             time -= 10;
             //show wrong h5
             wrong.style.display = "block";
             correct.style.display = "none";
-            // clear out result in 1 secondd
+            // clear out result in 2 seconds
             setInterval(function(){
                 wrong.style.display = "none";
-            }, 1000)
+            }, 2000)
             finalScore.textContent = time;
             time = 0;
             timerValue.textContent = 0;
