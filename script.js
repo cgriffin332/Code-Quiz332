@@ -142,11 +142,11 @@ answersUl.addEventListener("click", function(event){
             setInterval(function(){
                 wrong.style.display = "none";
             }, 2000)
-            finalScore.textContent = time;
-            time = 0;
-            timerValue.textContent = 0;
-            showScoreContainer();
         }
+        finalScore.textContent = time;
+        time = 0;
+        timerValue.textContent = 0;
+        showScoreContainer();
     }
 })
 
