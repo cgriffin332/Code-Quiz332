@@ -65,10 +65,9 @@ var questions = [{
 // when start button is clicked, timer is set at 75 and begins.
 startButton.addEventListener("click", function(){
     // start timer number
-    time = 76;
+    time = 75;
     i = 0;
-    correct.style.display = "none";
-    wrong.style.display = "none";
+    timerValue.textContent = time;
     changeQuestion();
     showQuestionContainer();
     // start timer
