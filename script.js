@@ -16,6 +16,11 @@ var answer1 = document.getElementById("questionValue1");
 var answer2 = document.getElementById("questionValue2");
 var answer3 = document.getElementById("questionValue3");
 var answer4 = document.getElementById("questionValue4");
+var answersUl = document.getElementById("allAnswers");
+var correct = document.getElementById("correct");
+var wrong = document.getElementById("wrong");
+var finalScore = document.getElementById("finalScore");
+
 
 
 
@@ -57,6 +62,33 @@ var questions = [{
     correct: "unanimous"
 }];
 
+// when start button is clicked, timer is set at 75 and begins.
+startButton.addEventListener("click", function(){
+    // start timer number
+    time = 76;
+    i = 0;
+    correct.style.display = "none";
+    wrong.style.display = "none";
+    changeQuestion();
+    showQuestionContainer();
+    // start timer
+    var setTimer = setInterval(function(){
+        if (time > 0) {
+            time--;
+            timerValue.textContent = time;
+        } 
+        else if (i === questions.length) {
+            clearInterval(setTimer)
+        }
+            else {
+            // clear setinterval
+            clearInterval(setTimer);
+            // open score page
+            showScoreContainer();
+        }
+    }, 1000)
+})
+
 // populate quiz questions
 var changeQuestion = function(){
     quizQuestion.textContent = questions[i].question;
@@ -65,6 +97,30 @@ var changeQuestion = function(){
     answer3.textContent = questions[i].answer3;
     answer4.textContent = questions[i].answer4;
 }
+// make questions change on click of answer
+answersUl.addEventListener("click", function(){
+    console.log(event.target.innerHTML);
+    console.log(questions[i].correct);
+    // so you dont have to click the last answer twice
+    if (i < questions.length - 1) {
+        // if the answer is correct
+        if (event.target.innerHTML === questions[i].correct) {
+            correct.style.display = "block";
+            wrong.style.display = "none";
+// !!!!!!!!!!! make text display for 2 seconds then go away
+        } else {
+            wrong.style.display = "block";
+            correct.style.display = "none";
+        }
+        i++;
+        changeQuestion();
+    } else {
+        // clear setinterval
+        finalScore.textContent = time;
+        time = 0;
+        showScoreContainer();
+    }
+})
 
 var showQuestionContainer = function(){
     // hides this container
@@ -104,27 +160,7 @@ goBackBtn.addEventListener("click", function(){
 var time = 0
 var i = 0
 
-// when start button is clicked, timer is set at 75 and begins.
-startButton.addEventListener("click", function(){
-    // start timer number
-    time = 76;
-    changeQuestion();
-    showQuestionContainer();
-    // start timer
-    var setTimer = setInterval(function(){
-        if (time > 0) {
-            time--;
-            timerValue.textContent = time;
-        } else {
-            // clear setinterval
-            clearInterval(setTimer);
-            // open score page
-            showScoreContainer();
-        }
-    }, 100)
-})
 
-//why doesnt this work???
 //Score initials submit
 submitBtn.addEventListener("click", function(event){
     // prevent reload of page
@@ -132,7 +168,7 @@ submitBtn.addEventListener("click", function(event){
     // create new li
     var listScore = document.createElement("li");
     // add initials and score
-    listScore.textContent = initialsInput.value + " - " + time;
+    listScore.textContent = initialsInput.value + " - " + finalScore.textContent;
     //add score to ol
     highscoreList.appendChild(listScore);
     //change to highscore page

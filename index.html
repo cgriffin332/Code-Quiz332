@@ -46,7 +46,7 @@
                 <!-- question and answers row -->
                 <div class="col-11 col-md-7 mx-auto mt-5">
                     <h4 id="quizQuestion">This is the quiz question.</h4>
-                    <ul>
+                    <ul id="allAnswers">
                         <li>
                             <!-- answer one -->
                             <button type="button" class="btn btn-primary" id="question1">
@@ -73,7 +73,16 @@
                         </li>
                     </ul>
                 </div>
-            </div>            
+            </div>  
+            <!-- correct answer -->
+            <div class="row">
+                <div class="col-11 col-md-7 mx-auto">
+                    <!-- correct h5 -->
+                    <h5 id="correct" class="text-secondary border-top hide">Correct!</h5>
+                    <!-- wrong h5 -->
+                    <h5 id="wrong" class="text-secondary border-top hide">Wrong!</h5>
+                </div>
+            </div>          
         </div>
         <!-- final score container -->
         <div id="container3" class="container hide">
