@@ -23,27 +23,27 @@ https://cgriffin332.github.io/Code-Quiz332/#
 
 When the webpage loads, the user is presented with this title page:
 
-![Image of Title Page](./images/title.png)
+![Image of Title Page](./assets/images/title.png)
 
 The code quiz begins when the start button is pressed. The timer begins and the first multiple choice quiz question is shown.
 
-![Image of Question Page](./images/first-question.png)
+![Image of Question Page](./assets/images/first-question.png)
 
 When the user clicks their answer, the user is notified if their choice was correct and the next quiz question is displayed. If the user's response is incorrect, the timer is lowered by 10 seconds.
 
-![Image of Wrong Answer Page](./images/wrong.png)
+![Image of Wrong Answer Page](./assets/images/wrong.png)
 
 When the user answers the final quiz question or when the timer reaches 0, the game is over. The user is shown their score and they can save their initials to the Highscore page.
 
-![Image of Score Page](./images/score.png)
+![Image of Score Page](./assets/images/score.png)
 
 You are then shown the highscores page where it lists the user's highscores.
 
-![Image of Highscores Page](./images/high-score.png)
+![Image of Highscores Page](./assets/images/high-score.png)
 
 The user can press the "clear" button to clear highscores, or can press the "go back" button to try the quiz again.
 
-![Image of Highscores Cleared Page](./images/clear.png)
+![Image of Highscores Cleared Page](./assets/images/clear.png)
 
 
 ## Credits
