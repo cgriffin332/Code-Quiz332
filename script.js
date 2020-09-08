@@ -1,5 +1,4 @@
 //TO DO
-//get button to deselect
 //get high scores to go in score order
 //save highscores onto local storage
 //readme

@@ -6,7 +6,7 @@
 /* Highscores Link styling */
 #highscoreLink {
     margin-left: 5px;
-    color: blue;
+    color: #007bff;
 }
 /* hides content */
 .hide {
@@ -17,7 +17,7 @@
     padding: 0 10px;
     margin-bottom: 5px;
 }
-
+/* remove button focus */
 .btn:focus {
     outline: none;
     box-shadow: none;
