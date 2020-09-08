@@ -1,27 +1,27 @@
 /* timer styling */
 #timer {
-    float: right;
-    margin-right: 5px;
+  float: right;
+  margin-right: 5px;
 }
 /* Highscores Link styling */
 #highscoreLink {
-    margin-left: 5px;
-    color: #007bff;
+  margin-left: 5px;
+  color: #007bff;
 }
 /* hides content */
 .hide {
-    display: none;
+  display: none;
 }
 /* button styling */
 .btn {
-    padding: 0 10px;
-    margin-bottom: 5px;
+  padding: 0 10px;
+  margin-bottom: 5px;
 }
 /* remove button focus */
 .btn:focus {
-    outline: none;
-    box-shadow: none;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-  }
+  outline: none;
+  box-shadow: none;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}

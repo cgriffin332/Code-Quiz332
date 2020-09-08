@@ -1,8 +1,6 @@
 //TO DO
 //get high scores to go in score order
 //save highscores onto local storage
-//readme
-
 
 // DOM variables
 var timerValue = document.getElementById("timerValue");
