@@ -3,6 +3,7 @@
 //save highscores onto local storage
 
 // DOM variables
+
 var timerValue = document.getElementById("timerValue");
 var startButton = document.getElementById("startQuiz");
 var startContainer = document.getElementById("container1");
@@ -24,6 +25,8 @@ var answersUl = document.getElementById("allAnswers");
 var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong");
 var finalScore = document.getElementById("finalScore");
+
+// global variables
 
 //questions array
 var questions = [
@@ -70,6 +73,72 @@ var questions = [
   },
 ];
 
+var time = 0;
+var i = 0;
+
+// defined functions
+
+// populate quiz questions
+var changeQuestion = function () {
+  quizQuestion.textContent = questions[i].question;
+  answer1.textContent = questions[i].answer1;
+  answer2.textContent = questions[i].answer2;
+  answer3.textContent = questions[i].answer3;
+  answer4.textContent = questions[i].answer4;
+};
+//check answer
+var checkAnswer = function () {
+  // if the answer is correct
+  if (event.target.innerHTML === questions[i].correct) {
+    // show user correct h5
+    correct.style.display = "block";
+    wrong.style.display = "none";
+    // clear out result in 2 seconds
+    setTimeout(function () {
+      correct.style.display = "none";
+    }, 2000);
+    // clear out result in 2 seconds
+  } else {
+    // subtract 10 seconds if answer is incorrect
+    time -= 10;
+    // show user wrong h5
+    wrong.style.display = "block";
+    correct.style.display = "none";
+    // clear out result in 2 seconds
+    setTimeout(function () {
+      wrong.style.display = "none";
+    }, 2000);
+  }
+};
+// show question container
+var showQuestionContainer = function () {
+  // hides this container
+  startContainer.style.display = "none";
+  // shows question to begin quiz
+  questionContainer.style.display = "block";
+};
+// show score container
+var showScoreContainer = function () {
+  // get final score page to show
+  questionContainer.style.display = "none";
+  finalScoreContainer.style.display = "block";
+};
+// show start container
+var showStartContainer = function () {
+  // get start page to show
+  finalScoreContainer.style.display = "none";
+  highscoreContainer.style.display = "none";
+  startContainer.style.display = "block";
+};
+// opens highscore page
+var showHighscoreContainer = function () {
+  finalScoreContainer.style.display = "none";
+  startContainer.style.display = "none";
+  highscoreContainer.style.display = "block";
+};
+
+// click functions
+
 // when start button is clicked, timer is set at 75 and begins.
 startButton.addEventListener("click", function () {
   // start timer number
@@ -91,96 +160,6 @@ startButton.addEventListener("click", function () {
     }
   }, 1000);
 });
-
-// populate quiz questions
-var changeQuestion = function () {
-  quizQuestion.textContent = questions[i].question;
-  answer1.textContent = questions[i].answer1;
-  answer2.textContent = questions[i].answer2;
-  answer3.textContent = questions[i].answer3;
-  answer4.textContent = questions[i].answer4;
-};
-// make questions change on click of answer
-answersUl.addEventListener("click", function (event) {
-  // prevent buttons from staying highlighted
-  event.preventDefault();
-  // so you dont have to click the last answer twice
-  if (i < questions.length - 1) {
-    // if the answer is correct
-    if (event.target.innerHTML === questions[i].correct) {
-      // show user correct h5
-      correct.style.display = "block";
-      wrong.style.display = "none";
-      // clear out result in 2 seconds
-      setTimeout(function () {
-        correct.style.display = "none";
-      }, 2000);
-      // clear out result in 2 seconds
-    } else {
-      // subtract 10 seconds if answer is incorrect
-      time -= 10;
-      // show user wrong h5
-      wrong.style.display = "block";
-      correct.style.display = "none";
-      // clear out result in 2 seconds
-      setTimeout(function () {
-        wrong.style.display = "none";
-      }, 2000);
-    }
-    i++;
-    changeQuestion();
-  } else {
-    // stop clock but delay .5 second to allow subtraction of time if last question is incorrect.
-    if (event.target.innerHTML === questions[i].correct) {
-      // show correct h5
-      correct.style.display = "block";
-      wrong.style.display = "none";
-      // clear out result in 2 seconds
-      setTimeout(function () {
-        correct.style.display = "none";
-      }, 2000);
-    } else {
-      // subtract 10 seconds if answer is incorrect
-      time -= 10;
-      //show wrong h5
-      wrong.style.display = "block";
-      correct.style.display = "none";
-      // clear out result in 2 seconds
-      setTimeout(function () {
-        wrong.style.display = "none";
-      }, 2000);
-    }
-    finalScore.textContent = time;
-    time = 0;
-    timerValue.textContent = 0;
-    showScoreContainer();
-  }
-});
-
-var showQuestionContainer = function () {
-  // hides this container
-  startContainer.style.display = "none";
-  // shows question to begin quiz
-  questionContainer.style.display = "block";
-};
-var showScoreContainer = function () {
-  // get final score page to show
-  questionContainer.style.display = "none";
-  finalScoreContainer.style.display = "block";
-};
-var showStartContainer = function () {
-  // get start page to show
-  finalScoreContainer.style.display = "none";
-  highscoreContainer.style.display = "none";
-  startContainer.style.display = "block";
-};
-// opens highscore page
-var showHighscoreContainer = function () {
-  finalScoreContainer.style.display = "none";
-  startContainer.style.display = "none";
-  highscoreContainer.style.display = "block";
-};
-
 // open highscore page
 highscoreLink.addEventListener("click", function () {
   // open highscore page
@@ -191,10 +170,29 @@ goBackBtn.addEventListener("click", function () {
   //open start page
   showStartContainer();
 });
-
-var time = 0;
-var i = 0;
-
+// clear button clears out highscores
+clearBtn.addEventListener("click", function () {
+  highscoreList.innerHTML = "";
+});
+// make questions change on click of answer
+answersUl.addEventListener("click", function (event) {
+  // prevent buttons from staying highlighted
+  event.preventDefault();
+  // so you dont have to click the last answer twice
+  if (i < questions.length - 1) {
+    // check answer
+    checkAnswer();
+    i++;
+    changeQuestion();
+  } else {
+    // check answer and stop clock
+    checkAnswer();
+    finalScore.textContent = time;
+    time = 0;
+    timerValue.textContent = 0;
+    showScoreContainer();
+  }
+});
 //Score initials submit
 submitBtn.addEventListener("click", function (event) {
   // prevent reload of page
@@ -207,8 +205,4 @@ submitBtn.addEventListener("click", function (event) {
   highscoreList.appendChild(listScore);
   //change to highscore page
   showHighscoreContainer();
-});
-// clear button clears out highscores
-clearBtn.addEventListener("click", function () {
-  highscoreList.innerHTML = "";
 });
