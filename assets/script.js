@@ -89,20 +89,20 @@ var checkAnswer = function () {
     // show user correct h5
     correct.style.display = "block";
     wrong.style.display = "none";
-    // clear out result in 2 seconds
+    // clear out result in 1 second
     setTimeout(function () {
       correct.style.display = "none";
-    }, 2000);
+    }, 1000);
   } else {
     // subtract 10 seconds if answer is incorrect
     time -= 10;
     // show user wrong h5
     wrong.style.display = "block";
     correct.style.display = "none";
-    // clear out result in 2 seconds
+    // clear out result in 1 second
     setTimeout(function () {
       wrong.style.display = "none";
-    }, 2000);
+    }, 1000);
   }
 };
 // show question container
