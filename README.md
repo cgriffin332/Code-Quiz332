@@ -37,7 +37,7 @@ When the user answers the final quiz question or when the timer reaches 0, the g
 
 ![Image of Score Page](./assets/images/score.png)
 
-You are then shown the highscores page where it lists the user's highscores.
+The user is then shown the highscores page where it lists the user's highscores.  These scores are stored onto local storage so they can be revisited.
 
 ![Image of Highscores Page](./assets/images/high-score.png)
 
