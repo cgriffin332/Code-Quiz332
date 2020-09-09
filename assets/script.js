@@ -1,7 +1,3 @@
-//TO DO
-//get high scores to go in score order
-//save highscores onto local storage
-
 // DOM variables
 
 var timerValue = document.getElementById("timerValue");
@@ -78,7 +74,7 @@ var i = 0;
 
 // defined functions
 
-// populate quiz questions
+// populate quiz questions by iterating through array objects
 var changeQuestion = function () {
   quizQuestion.textContent = questions[i].question;
   answer1.textContent = questions[i].answer1;
@@ -97,7 +93,6 @@ var checkAnswer = function () {
     setTimeout(function () {
       correct.style.display = "none";
     }, 2000);
-    // clear out result in 2 seconds
   } else {
     // subtract 10 seconds if answer is incorrect
     time -= 10;
@@ -112,26 +107,28 @@ var checkAnswer = function () {
 };
 // show question container
 var showQuestionContainer = function () {
-  // hides this container
+  // hides start container
   startContainer.style.display = "none";
   // shows question to begin quiz
   questionContainer.style.display = "block";
 };
 // show score container
 var showScoreContainer = function () {
-  // get final score page to show
+  // hides question container
   questionContainer.style.display = "none";
+  // shows final score page
   finalScoreContainer.style.display = "block";
 };
 // show start container
 var showStartContainer = function () {
-  // get start page to show
+  // show start page and hide others
   finalScoreContainer.style.display = "none";
   highscoreContainer.style.display = "none";
   startContainer.style.display = "block";
 };
 // opens highscore page
 var showHighscoreContainer = function () {
+  // show highscore page and hide others
   finalScoreContainer.style.display = "none";
   startContainer.style.display = "none";
   highscoreContainer.style.display = "block";
@@ -144,6 +141,9 @@ startButton.addEventListener("click", function () {
   // start timer number
   time = 75;
   i = 0;
+  // reset final score to 0
+  finalScore.textContent = 0;
+  // assign timer value
   timerValue.textContent = time;
   changeQuestion();
   showQuestionContainer();
@@ -162,38 +162,44 @@ startButton.addEventListener("click", function () {
 });
 // open highscore page
 highscoreLink.addEventListener("click", function () {
-  // open highscore page
   showHighscoreContainer();
 });
 // go back to title page
 goBackBtn.addEventListener("click", function () {
-  //open start page
   showStartContainer();
 });
 // clear button clears out highscores
 clearBtn.addEventListener("click", function () {
+  // reassign highscores to an empty string
   highscoreList.innerHTML = "";
 });
 // make questions change on click of answer
 answersUl.addEventListener("click", function (event) {
-  // prevent buttons from staying highlighted
+  // prevent page from reloading
   event.preventDefault();
-  // so you dont have to click the last answer twice
+  // the quiz ends when the last question is answerd
   if (i < questions.length - 1) {
     // check answer
     checkAnswer();
     i++;
     changeQuestion();
   } else {
-    // check answer and stop clock
+    // check answer
     checkAnswer();
-    finalScore.textContent = time;
+    // assign final score to the time value
+    // if time is less than 1, final score is assigned value of 0
+    if (time >= 0) {
+      finalScore.textContent = time;
+    } else {
+      finalScore.textContent = 0;
+    }
+    // reset timer
     time = 0;
     timerValue.textContent = 0;
     showScoreContainer();
   }
 });
-//Score initials submit
+// Score initials submit
 submitBtn.addEventListener("click", function (event) {
   // prevent reload of page
   event.preventDefault();
@@ -201,8 +207,8 @@ submitBtn.addEventListener("click", function (event) {
   var listScore = document.createElement("li");
   // add initials and score
   listScore.textContent = initialsInput.value + " - " + finalScore.textContent;
-  //add score to ol
+  // add score to ol
   highscoreList.appendChild(listScore);
-  //change to highscore page
+  // move to highscore page
   showHighscoreContainer();
 });
