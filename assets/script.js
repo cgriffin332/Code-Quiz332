@@ -1,3 +1,5 @@
+// Save highscores to local storage
+
 // DOM variables
 
 var timerValue = document.getElementById("timerValue");
@@ -128,6 +130,8 @@ var showStartContainer = function () {
 };
 // opens highscore page
 var showHighscoreContainer = function () {
+  // get highscores from local storage
+  highscoreList.innerHTML = JSON.parse(localStorage.getItem("scores"));
   // show highscore page and hide others
   finalScoreContainer.style.display = "none";
   startContainer.style.display = "none";
@@ -138,6 +142,8 @@ var showHighscoreContainer = function () {
 
 // when start button is clicked, timer is set at 75 and begins.
 startButton.addEventListener("click", function () {
+  // get highscores from local storage
+  highscoreList.innerHTML = JSON.parse(localStorage.getItem("scores"));
   // start timer number
   time = 75;
   i = 0;
@@ -170,6 +176,8 @@ goBackBtn.addEventListener("click", function () {
 });
 // clear button clears out highscores
 clearBtn.addEventListener("click", function () {
+  // clear item from local storage
+  localStorage.removeItem("scores");
   // reassign highscores to an empty string
   highscoreList.innerHTML = "";
 });
@@ -210,5 +218,8 @@ submitBtn.addEventListener("click", function (event) {
   // add score to ol
   highscoreList.appendChild(listScore);
   // move to highscore page
+  console.log(highscoreList);
+  // save to local storage
+  localStorage.setItem("scores", JSON.stringify(highscoreList.innerHTML));
   showHighscoreContainer();
 });
