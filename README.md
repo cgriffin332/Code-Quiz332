@@ -1,25 +1,22 @@
 # Code-Quiz332
 
-## Description 
+## Description
 
-For this project I have created a timed multiple choice code quiz for a juxtaposition of JavaScript review and some fun.  This app runs in the browser and features dynamically updated HTML, CSS and Bootstrap powered by JavaScript. This also features clean user interface that will adapt to multiple screen sizes. 
-
+For this project I have created a timed multiple choice code quiz for a juxtaposition of JavaScript review and some fun. This app runs in the browser and features dynamically updated HTML, CSS and Bootstrap powered by JavaScript. This also features clean user interface that will adapt to multiple screen sizes.
 
 ## Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
 ## Installation
 
 Click this link in order to take the timed JavaScript quiz:
 https://cgriffin332.github.io/Code-Quiz332/#
 
-
-## Usage 
+## Usage
 
 When the webpage loads, the user is presented with this title page:
 
@@ -37,7 +34,7 @@ When the user answers the final quiz question or when the timer reaches 0, the g
 
 ![Image of Score Page](./assets/images/score.png)
 
-The user is then shown the highscores page where it lists the user's highscores.  These scores are stored onto local storage so they can be revisited.
+The user is then shown the highscores page where it lists the user's highscores. These scores are stored onto local storage so they can be revisited.
 
 ![Image of Highscores Page](./assets/images/high-score.png)
 
@@ -45,11 +42,9 @@ The user can press the "clear" button to clear highscores, or can press the "go 
 
 ![Image of Highscores Cleared Page](./assets/images/clear.png)
 
-
 ## Credits
 
-This project was asigned to me by my Georgia Tech Bootcamp.  I used Bootstrap to help create a responsive application.
-
+This project was asigned to me by my Georgia Tech Bootcamp. I used Bootstrap to help create a responsive application.
 
 ## License
 
@@ -74,6 +69,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 
 ---
