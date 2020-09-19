@@ -46,6 +46,11 @@ The user can press the "clear" button to clear highscores, or can press the "go 
 
 This project was asigned to me by my Georgia Tech Bootcamp. I used Bootstrap to help create a responsive application.
 
+## Contact
+LinkedIn: https://www.linkedin.com/in/calvin-griffin-8247521b7/
+Email: cgriffin332@gmail.com
+Portfolio: https://cgriffin332.github.io/Updated-Portfolio332/
+
 ## License
 
 MIT License
